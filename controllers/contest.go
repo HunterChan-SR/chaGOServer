@@ -18,6 +18,6 @@ func (co ContestController) Get(c *gin.Context) {
 	param := c.Param("id")
 	id, _ := strconv.Atoi(param)
 	var problems []bean.Problem
-	db.DB.Where("contestid = ?", id).Find(&problems)
+	db.DB.Where("contestid = ?", id).Order("createtime").Find(&problems)
 	ReturnSuccess(c, OK, "success", problems, len(problems))
 }
