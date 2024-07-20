@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token"
+          content="i2AaBmbmzCB6-to9ilTKyRnjjvsxAzYg6tFnhWlBqSPYOF81P9-PSki5qXbsEZmQUNrazXB7bxia4gn0JXbfTQ==">
+    <title>problem</title>
+    <link href="https://oj.czos.cn/assets/a32110b4/lib/codemirror.css?v=1676279839" rel="stylesheet">
+    <link href="https://oj.czos.cn/assets/a32110b4/theme/darcula.css?v=1676279839" rel="stylesheet">
+    <link href="https://oj.czos.cn/assets/894142ab/css/bootstrap.css?v=1676277361" rel="stylesheet">
+    <link href="https://oj.czos.cn/css/site.css?v=1713843319" rel="stylesheet">
+    <link href="https://oj.czos.cn/css/font-awesome.min.css?v=1676274298" rel="stylesheet">
+    <link href="https://oj.czos.cn/css/main.css?v=1714378321" rel="stylesheet">
+    <link href="https://oj.czos.cn/js/katex/katex.css?v=1676274318" rel="stylesheet">
+    <link href="https://oj.czos.cn/js/highlight/styles/monokai-sublime.css?v=1676274313" rel="stylesheet">
+    <link href="https://oj.czos.cn/js/bootstrap-table/bootstrap-table.min.css?v=1676274304" rel="stylesheet">
+    <style>
+        .pre p {
+            background-image: url(https://oj.czos.cn/watermark/code-press)
+        }
+    </style>
+    <style>
+        .CodeMirror {
+            border: 1px solid black;
+            font-size: 15px;
+        }
+    </style>
+    <!-- ... -->
+
+    <script src="https://oj.czos.cn/assets/f50e9895/jquery.js?v=1676277361"></script>
+    <script src="https://oj.czos.cn/assets/349a0d6e/yii.js?v=1676277361"></script>
+    <script src="https://oj.czos.cn/assets/349a0d6e/yii.validation.js?v=1676277361"></script>
+    <script src="https://oj.czos.cn/assets/a32110b4/lib/codemirror.js?v=1676279839"></script>
+    <script src="https://oj.czos.cn/assets/a32110b4/addon/selection/active-line.js?v=1676279839"></script>
+    <script src="https://oj.czos.cn/assets/a32110b4/addon/edit/matchbrackets.js?v=1676279839"></script>
+    <script src="https://oj.czos.cn/assets/a32110b4/addon/display/autorefresh.js?v=1676279839"></script>
+    <script src="https://oj.czos.cn/assets/a32110b4/mode/javascript/javascript.js?v=1676279839"></script>
+    <script src="https://oj.czos.cn/assets/349a0d6e/yii.activeForm.js?v=1676277361"></script>
+    <script src="https://oj.czos.cn/assets/894142ab/js/bootstrap.js?v=1676277361"></script>
+    <script src="https://oj.czos.cn/js/problem.js"></script>
+    <script src="https://oj.czos.cn/js/highlight/highlight.pack.js?v=1676274313"></script>
+    <script src="https://oj.czos.cn/js/katex/katex.js?v=1676274318"></script>
+    <script src="https://oj.czos.cn/js/socket.io.js?v=1676274324"></script>
+    <script src="https://oj.czos.cn/js/clipboard.min.js?v=1676274324"></script>
+    <script src="https://oj.czos.cn/js/app.js?v=1676274324"></script>
+    <script src="https://oj.czos.cn/js/layer/layer.js?v=1676274321"></script>
+    <script src="https://oj.czos.cn/js/sweetalert2.js?v=1676274324"></script>
+    <script src="https://oj.czos.cn/js/bootstrap-table/bootstrap-table.min.js?v=1676274304"></script>
+    <script src="https://oj.czos.cn/js/bootstrap-table/bootstrap-table-zh-CN.min.js?v=1676274304"></script>
+    <script>jQuery(function ($) {
+        CodeMirror.fromTextArea(document.getElementById("solution-source"),{
+            theme: "darcula",
+            lineNumbers: true,
+            styleActiveLine: true,//当前行背景高亮
+            indentUnit: 4,
+            autofocus: false, //是否在初始化时自动获取焦点
+            matchBrackets: true, //括号匹配
+            autoRefresh: true,
+            lineWrapping: true, //代码折叠
+            foldGutter: true,
+            autoCloseBrackets: true
+        });
+        jQuery('#w1').yiiActiveForm([{"id":"solution-language","name":"language","container":".field-solution-language","input":"#solution-language","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"语言必须是整数。","skipOnEmpty":1});yii.validation.required(value, messages, {"message":"语言不能为空。"});yii.validation.range(value, messages, {"range":["0","1","2","3"],"not":false,"message":"Please select a language","skipOnEmpty":1});}},{"id":"solution-source","name":"source","container":".field-solution-source","input":"#solution-source","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"代码不能为空。"});yii.validation.string(value, messages, {"message":"代码必须是一条字符串。","skipOnEmpty":1});}}], []);
+        jQuery('#w0').modal({"show":false});
+        jQuery('#solution-info').modal({"show":false});
+        $(function(){
+            $(".problem-view table").addClass("table table-bordered");
+        });
+
+        setInterval(function(){
+            $('.pre p').each(function(i,e){
+                const bg = 'url(/watermark/code-press)';
+                $(e).css('background-image',bg);
+            });
+        },2000);
+
+    });</script><script>
+    $(".grid-view").addClass("table-responsive");
+</script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5922abd46d4885de6d61aeb22c522bc9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+
+            <div class="col-md-9 problem-view">
+            <div class="content-header">
+                <span>题目描述</span><i class='fa fa-ellipsis-v pull-right' style='margin-top: 3px;'></i>
+            </div>
+            <div class="content-wrapper">
+                <div class="markdown"><p>从键盘读入 <span class="katex math inline">2</span> 个整数，分别代表一个长方形的长和宽，请计算长方形的周长和面积。</p>
+</div>            </div>
+
+            <div class="content-header">
+                <span>输入</span><i class='fa fa-ellipsis-v pull-right'
+                                                             style='margin-top: 3px;'></i>
+            </div>
+            <div class="content-wrapper">
+                <div class="markdown"><p>从键盘读入 <span class="katex math inline">2</span> 个整数，用空格隔开。</p>
+</div>            </div>
+
+            <div class="content-header">
+                <span>输出</span><i class='fa fa-ellipsis-v pull-right'
+                                                              style='margin-top: 3px;'></i>
+            </div>
+            <div class="content-wrapper">
+                <div class="markdown"><p>输出有 <span class="katex math inline">2</span> 行，第 <span class="katex math inline">1</span> 行代表周长，第 <span class="katex math inline">2</span> 行代表面积。</p>
+</div>            </div>
+
+                            <div class="content-header">
+                <span>样例<i class='fa fa-ellipsis-v pull-right'
+                                                         style='margin-top: 3px;'></i>
+                </div>
+                <div class="content-wrapper">
+                    <div class="sample-test">
+                        <div class="input">
+                            <h4>输入</h4>
+                            <pre>2 3</pre>
+                        </div>
+                        <div class="output">
+                            <h4>输出</h4>
+                            <pre>10
+6</pre>
+                        </div>
+
+                        
+                                            </div>
+                </div>
+            
+            
+</body>
+</html>

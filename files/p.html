@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="dJUnPqzuyDPUREFrLvt3gku-cS48RKcsv8YIH-F5a-InzWIN9deLWeYHMiBIviTbAoclGH08_hTP9WZurU4djA==">
+    <title>1597 - 买文具-东方博宜OJ</title>
+    <link href="/assets/a32110b4/lib/codemirror.css?v=1676279839" rel="stylesheet">
+<link href="/assets/a32110b4/theme/darcula.css?v=1676279839" rel="stylesheet">
+<link href="/assets/894142ab/css/bootstrap.css?v=1676277361" rel="stylesheet">
+<link href="/css/site.css?v=1713843319" rel="stylesheet">
+<link href="/css/font-awesome.min.css?v=1676274298" rel="stylesheet">
+<link href="/css/main.css?v=1714378321" rel="stylesheet">
+<link href="/js/katex/katex.css?v=1676274318" rel="stylesheet">
+<link href="/js/highlight/styles/monokai-sublime.css?v=1676274313" rel="stylesheet">
+<link href="/js/bootstrap-table/bootstrap-table.min.css?v=1676274304" rel="stylesheet">
+<style>
+    .pre p{
+            background-image:url(/watermark/code-press)
+    }
+</style>
+<style>
+        .CodeMirror {
+            border: 1px solid black;
+            font-size: 15px;
+        }
+        </style>    <link rel="shortcut icon" href="/favicon.ico">
+
+    </head>
+<body>
+<div class="wrap">
+    <!--
+    <header id="header" class="hidden-xs">
+        <div class="container">
+            <div class="page-header">
+                <div class="logo pull-left">
+                    <div class="pull-left">
+                        <a class="navbar-brand" href="">
+                            <img src="/images/logo.png" />
+                        </a>
+                    </div>
+                    <div class="brand">
+                        Online Judge
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </header>
+    -->
+    <nav id="w2" class="navbar-default navbar" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="/">东方博宜OJ</a></div><div id="w2-collapse" class="collapse navbar-collapse"><ul id="w3" class="navbar-nav navbar-right nav"><li><a href="/problem/index"><span class="fa fa-list-ul"></span> 问题</a></li>
+<li><a href="/rating/problem"><span class="fa fa-bar-chart"></span> 排行榜</a></li>
+<li><a href="/group/my-group"><span class="fa fa-users"></span> 小组</a></li>
+<li><a href="/contest/index"><span class="fa fa-trophy"></span> 比赛</a></li>
+<li><a href="/lists/index"><span class="fa fa-clipboard"></span> 题单</a></li>
+<li><a href="/school/index"><span class="fa fa-leanpub"></span> 网校</a></li>
+<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="fa fa-user"></span> chenheSN <b class="caret"></b></a><ul id="w4" class="dropdown-menu"><li><a href="/user/view?id=84498" tabindex="-1"><span class="glyphicon glyphicon-home"></span> 简介</a></li>
+<li><a href="/user/setting?action=profile" tabindex="-1"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
+<li><a href="/p/1597" tabindex="-1"><span class="glyphicon glyphicon-star"></span> 金币 1</a></li>
+<li><a href="/user/report" tabindex="-1"><span class="glyphicon glyphicon glyphicon-book"></span> 错题集</a></li>
+<li class="divider"></li>
+<li><a href="/wiki/index" tabindex="-1"><span class="glyphicon glyphicon-info-sign"></span> 帮助</a></li>
+<li><a href="/site/logout" tabindex="-1"><span class="glyphicon glyphicon-log-out"></span> 退出登录</a></li></ul></li></ul></div></div></nav>
+    
+    <div class="container">
+        <ul class="breadcrumb"><li><a href="/">首页</a></li>
+<li><a href="/problem/index">问题列表</a></li>
+<li class="active">1597 - 买文具</li>
+</ul>                
+
+<div class="row search-row">
+    <div class="col-md-6 col-md-offset-3">
+        <form class="problemSearchForm" method="get" action="/problem/index">
+            <div class="input-group input-group-lg">
+                <label class="sr-only" for="q">搜索</label>                <input type="text" class="form-control input-search" name="q" value="" placeholder="输入 ID 或标题或来源">                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary btn-search" onclick="check()"><span class="fa fa-search"></span></button>                    </span>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    let check = function () {
+        let _elem = $(document.body).find("input[name='look']");
+        if (_elem.length > 0) {
+            let look = _elem.val().trim();
+            $('.problemSearchForm').append("<input type='hidden' name='look' value='" + look + "'/>");
+            $('.problemSearchForm').submit();
+        }else{
+            $('.problemSearchForm').submit();
+        }
+    }
+</script>
+
+<div class="row bg-white problem-detail" style="padding:15px;">
+
+    <div class="row text-center">
+        <h3><b>1597 - 买文具</b></h3>
+    </div>
+            <div class="col-md-9 problem-view">
+            <div class="content-header">
+                <span>题目描述</span><i class='fa fa-ellipsis-v pull-right' style='margin-top: 3px;'></i>
+            </div>
+            <div class="content-wrapper">
+                <div class="markdown"><p>花花去文具店买了 <span class="katex math inline">1</span> 支笔和 <span class="katex math inline">1</span> 块橡皮，已知笔 <span class="katex math inline">x</span> 元 <span class="katex math inline">/</span>  支，橡皮 <span class="katex math inline">y</span>元 <span class="katex math inline">/</span>  块，花花付给了老板 <span class="katex math inline">n</span> 元，请问老板应该找给花花多少钱？</p>
+</div>            </div>
+
+            <div class="content-header">
+                <span>输入</span><i class='fa fa-ellipsis-v pull-right'
+                                                             style='margin-top: 3px;'></i>
+            </div>
+            <div class="content-wrapper">
+                <div class="markdown"><p>三个整数 <span class="katex math inline">x、y、n</span> ，分别代表了笔的单价、橡皮的单价和花花付给老板的钱（已知花花付给老板的钱 <span class="katex math inline">n \ge x+y</span> ）。</p>
+</div>            </div>
+
+            <div class="content-header">
+                <span>输出</span><i class='fa fa-ellipsis-v pull-right'
+                                                              style='margin-top: 3px;'></i>
+            </div>
+            <div class="content-wrapper">
+                <div class="markdown"><p>一个整数，代表老板应该找给花花的钱。</p>
+</div>            </div>
+
+                            <div class="content-header">
+                <span>样例<i class='fa fa-ellipsis-v pull-right'
+                                                         style='margin-top: 3px;'></i>
+                </div>
+                <div class="content-wrapper">
+                    <div class="sample-test">
+                        <div class="input">
+                            <h4>输入</h4>
+                            <pre>2 1 10</pre>
+                        </div>
+                        <div class="output">
+                            <h4>输出</h4>
+                            <pre>7</pre>
+                        </div>
+
+                        
+                                            </div>
+                </div>
+            
+            
+                            <div class="content-header">
+                    <span>来源<i class='fa fa-ellipsis-v pull-right'
+                                                           style='margin-top: 3px;'></i>
+                </div>
+                <div class="content-wrapper">
+                    <div class="markdown"><p>基础问题</p>
+</div>                </div>
+            
+                            <div class="content-header">
+                    <span>标签<i class='fa fa-ellipsis-v pull-right'
+                                                         style='margin-top: 3px;'></i>
+                </div>
+                <div class="content-wrapper">
+                                        <div class="markdown"><p><span class="problem-list-tags"><a href="/problem/index?tag=%E5%9F%BA%E7%A1%80%E9%97%AE%E9%A2%98"><span class="label label-success">基础问题</span></a></span></p>
+</div>                </div>
+                    </div>
+            
+
+    <div class="col-md-3 problem-info">
+        <div class="panel panel-default">
+            <!-- Table -->
+            <div class="content-header">
+                    <span>题目参数<i class='fa fa-ellipsis-v pull-right' style='margin-top: 3px;'></i>
+            </div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr>
+                    <td>时间限制</td>
+                    <td>
+                        <i class="fa fa-clock-o"></i> 1 秒                    </td>
+                </tr>
+                <tr>
+                    <td>内存限制</td>
+                    <td><i class="fa fa-save"></i> 64 MB</td>
+                </tr>
+                <tr>
+                    <td>提交次数</td>
+                    <td><i class="fa fa-share-square-o"> 25897</td>
+                </tr>
+                <tr>
+                    <td>通过人数</td>
+                    <td><i class="fa fa-check-square-o"> 19256</td>
+                </tr>
+                <tr>
+                    <td>金币数量</td>
+                    <td><i class="fa fa-database"> 1 枚</td>
+                </tr>
+                <tr>
+                    <td>难度</td>
+                    <td><i class="fa fa-tag"> 入门</td>
+                </tr>
+                                </tbody>
+            </table>
+        </div>
+
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#w0"><span class="glyphicon glyphicon-plus"></span> 提交</button>
+<div id="w0" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h3>提交：1597. 买文具</h3>
+</div>
+<div class="modal-body">
+                            <form id="w1" action="/p/1597" method="post">
+<input type="hidden" name="_csrf" value="dJUnPqzuyDPUREFrLvt3gku-cS48RKcsv8YIH-F5a-InzWIN9deLWeYHMiBIviTbAoclGH08_hTP9WZurU4djA==">
+                <div class="form-group field-solution-language required">
+<label class="control-label" for="solution-language">语言</label>
+<select id="solution-language" class="form-control" name="Solution[language]" aria-required="true">
+<option value="">All</option>
+<option value="0">C</option>
+<option value="1" selected>C++</option>
+<option value="2">Java</option>
+<option value="3">Python3</option>
+</select>
+
+<div class="help-block"></div>
+</div>
+                <div class="form-group field-solution-source required">
+<label class="control-label" for="solution-source">代码</label>
+<textarea id="solution-source" class="form-control" name="Solution[source]" aria-required="true" style="display:none"></textarea>
+
+<div class="help-block"></div>
+</div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>                </div>
+                </form>                        
+</div>
+
+</div>
+</div>
+</div>
+                            <button type="button" class="btn btn-default disabled" title="提交程序正确后才能看题解"><span class="glyphicon glyphicon-comment"></span> 题解</button>                        <hr>
+                                        <div class="panel panel-default hidden-sm" style="border: 0px">
+                    <div class="panel-body" style="padding: 0px">
+                        <a href="https://oj.czos.cn/site/news?id=1848&key=2e5544124e43ad265ef23bf3b9ab4f9e">
+                            <img width="100%"
+                                 src="/images/ad.jpg?t=170">
+                        </a>
+                    </div>
+                </div>
+                                            <hr>
+        <a class="btn btn-default" href="/p/1596" style="width: 40%"><span class="glyphicon glyphicon-arrow-left"></span> 上一题</a>
+        <a class="btn btn-default" href="/p/1598" style="width: 50%">下一题 <span class="glyphicon glyphicon-arrow-right"></span></a>
+        
+        
+            </div>
+</div>
+
+
+<div id="solution-info" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog ">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+</div>
+<div class="modal-body">
+<div id="solution-content">
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+<input type="hidden" name="verdict_url" value="/solution/verdict">
+<input type="hidden" name="loading_img_url" value="/images/loading.gif">
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="pull-left">
+            &copy; 东方博宜OJ 2024        </p>
+        <p class="pull-left">
+            | <a href="https://beian.miit.gov.cn/">苏ICP备19004683号-2</a>        </p>
+        <!--
+        <p class="pull-left">
+            <a href="?lang=zh-CN"> 中文简体 </a>| <a href="?lang=en"> English </a>        </p>
+        -->
+    </div>
+</footer>
+
+<script src="/assets/f50e9895/jquery.js?v=1676277361"></script>
+<script src="/assets/349a0d6e/yii.js?v=1676277361"></script>
+<script src="/assets/349a0d6e/yii.validation.js?v=1676277361"></script>
+<script src="/assets/a32110b4/lib/codemirror.js?v=1676279839"></script>
+<script src="/assets/a32110b4/addon/selection/active-line.js?v=1676279839"></script>
+<script src="/assets/a32110b4/addon/edit/matchbrackets.js?v=1676279839"></script>
+<script src="/assets/a32110b4/addon/display/autorefresh.js?v=1676279839"></script>
+<script src="/assets/a32110b4/mode/javascript/javascript.js?v=1676279839"></script>
+<script src="/assets/349a0d6e/yii.activeForm.js?v=1676277361"></script>
+<script src="/assets/894142ab/js/bootstrap.js?v=1676277361"></script>
+<script src="/js/problem.js"></script>
+<script src="/js/highlight/highlight.pack.js?v=1676274313"></script>
+<script src="/js/katex/katex.js?v=1676274318"></script>
+<script src="/js/socket.io.js?v=1676274324"></script>
+<script src="/js/clipboard.min.js?v=1676274324"></script>
+<script src="/js/app.js?v=1676274324"></script>
+<script src="/js/layer/layer.js?v=1676274321"></script>
+<script src="/js/sweetalert2.js?v=1676274324"></script>
+<script src="/js/bootstrap-table/bootstrap-table.min.js?v=1676274304"></script>
+<script src="/js/bootstrap-table/bootstrap-table-zh-CN.min.js?v=1676274304"></script>
+<script>jQuery(function ($) {
+        CodeMirror.fromTextArea(document.getElementById("solution-source"),{
+            theme: "darcula",
+            lineNumbers: true,
+            styleActiveLine: true,//当前行背景高亮
+            indentUnit: 4,
+            autofocus: false, //是否在初始化时自动获取焦点
+            matchBrackets: true, //括号匹配
+            autoRefresh: true,
+            lineWrapping: true, //代码折叠
+            foldGutter: true,
+            autoCloseBrackets: true
+        });
+jQuery('#w1').yiiActiveForm([{"id":"solution-language","name":"language","container":".field-solution-language","input":"#solution-language","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"语言必须是整数。","skipOnEmpty":1});yii.validation.required(value, messages, {"message":"语言不能为空。"});yii.validation.range(value, messages, {"range":["0","1","2","3"],"not":false,"message":"Please select a language","skipOnEmpty":1});}},{"id":"solution-source","name":"source","container":".field-solution-source","input":"#solution-source","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"代码不能为空。"});yii.validation.string(value, messages, {"message":"代码必须是一条字符串。","skipOnEmpty":1});}}], []);
+jQuery('#w0').modal({"show":false});
+jQuery('#solution-info').modal({"show":false});
+    $(function(){
+        $(".problem-view table").addClass("table table-bordered");
+    });
+
+        setInterval(function(){
+            $('.pre p').each(function(i,e){
+                const bg = 'url(/watermark/code-press)'; 
+                $(e).css('background-image',bg);
+            });
+        },2000);
+
+});</script><script>
+    $(".grid-view").addClass("table-responsive");
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5922abd46d4885de6d61aeb22c522bc9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+</html>
