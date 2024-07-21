@@ -100,8 +100,8 @@ func GetId(id string, subCode string) string {
 	//fmt.Println(txtString)
 	//查找第一个"/solution/result?id="
 	index := strings.Index(txtString, "/solution/result?id=")
-	//id为五位数字
-	getId := txtString[index+len("/solution/result?id=") : index+len("/solution/result?id=")+7]
+	//id为7位数字
+	getId := txtString[index+len("/solution/result?id=") : index+len("/solution/result?id=")+9]
 	return getId
 }
 func GetResult(id string) string {
