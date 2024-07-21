@@ -49,15 +49,15 @@ func (u UserController) PostRanking(c *gin.Context) {
 			continue
 		}
 		rating := float64(userList[i].Rating)
-		if rating >= avg*1.8 {
+		if rating >= avg*2.0 {
 			db.DB.Model(&bean.User{}).Where("id = ?", userList[i].Id).Update("ranking", 1)
-		} else if rating >= avg*1.5 {
+		} else if rating >= avg*1.6 {
 			db.DB.Model(&bean.User{}).Where("id = ?", userList[i].Id).Update("ranking", 2)
-		} else if rating >= avg*1.3 {
+		} else if rating >= avg*1.2 {
 			db.DB.Model(&bean.User{}).Where("id = ?", userList[i].Id).Update("ranking", 3)
-		} else if rating >= avg*1.0 {
+		} else if rating >= avg*0.8 {
 			db.DB.Model(&bean.User{}).Where("id = ?", userList[i].Id).Update("ranking", 4)
-		} else if rating >= avg*0.5 {
+		} else if rating >= avg*0.4 {
 			db.DB.Model(&bean.User{}).Where("id = ?", userList[i].Id).Update("ranking", 5)
 		} else {
 			db.DB.Model(&bean.User{}).Where("id = ?", userList[i].Id).Update("ranking", 6)
