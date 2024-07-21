@@ -42,7 +42,7 @@ func (u UserController) PostRanking(c *gin.Context) {
 		}
 		sum += userList[i].Rating
 	}
-	avg := float64(sum) / float64(cnt)
+	avg := float64(sum) / float64(cnt-1)
 	for i := 0; i < cnt; i++ {
 		if strings.Contains(userList[i].Username, "admin") {
 			db.DB.Model(&bean.User{}).Where("id = ?", userList[i].Id).Update("rating", int(avg)).Update("ranking", 4)
