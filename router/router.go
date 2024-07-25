@@ -112,6 +112,14 @@ func Router() *gin.Engine {
 			submit.GET("/:userid/:problemid", controllers.SubmitController{}.Get)
 			submit.POST("", controllers.SubmitController{}.Post)
 		}
+
+		auth.GET("/needhelps", controllers.NeedHelpDaysController{}.GetList)
+		needhelp := auth.Group("/needhelp")
+		{
+			needhelp.GET("/:days", controllers.NeedHelpController{}.GetList)
+			needhelp.POST("/context", controllers.NeedHelpController{}.PostContext)
+			needhelp.POST("/recontext", controllers.NeedHelpController{}.PostRecontext)
+		}
 	}
 
 	return r
