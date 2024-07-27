@@ -118,8 +118,12 @@ func Router() *gin.Engine {
 		{
 			needhelp.GET("/:days", controllers.NeedHelpController{}.GetList)
 			needhelp.POST("/context", controllers.NeedHelpController{}.PostContext)
-			needhelp.POST("/recontext", controllers.NeedHelpController{}.PostRecontext)
+			//needhelp.POST("/recontext", controllers.NeedHelpController{}.PostRecontext)
 		}
+
+		auth.GET("/recontext/:needhelpid", controllers.RecontextController{}.GetList)
+		auth.POST("/recontext", controllers.RecontextController{}.Post)
+
 	}
 
 	return r

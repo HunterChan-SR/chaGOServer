@@ -30,7 +30,6 @@ type NeedHelpGetList struct {
 	Problemtitle string `json:"problemtitle"`
 	Subcode      string `json:"subcode"`
 	Context      string `json:"context"`
-	Recontext    string `json:"recontext"`
 	Createtime   string `json:"createtime"`
 }
 
@@ -54,12 +53,12 @@ func (nh NeedHelpController) PostContext(c *gin.Context) {
 	ReturnSuccess(c, OK, "success", "success", 0)
 }
 
-func (nh NeedHelpController) PostRecontext(c *gin.Context) {
-	var needhelp bean.NeedHelp
-	_ = c.Bind(&needhelp)
-	//fmt.Println("##########")
-	//fmt.Println(needhelp.Id)
-	//更新
-	db.DB.Model(&needhelp).Update("recontext", needhelp.Recontext)
-	ReturnSuccess(c, OK, "success", "success", 0)
-}
+//func (nh NeedHelpController) PostRecontext(c *gin.Context) {
+//	var needhelp bean.NeedHelp
+//	_ = c.Bind(&needhelp)
+//	//fmt.Println("##########")
+//	//fmt.Println(needhelp.Id)
+//	//更新
+//	db.DB.Model(&needhelp).Update("recontext", needhelp.Recontext)
+//	ReturnSuccess(c, OK, "success", "success", 0)
+//}

@@ -20,7 +20,6 @@ type NeedHelp struct {
 	Problemtitle string `json:"problemtitle"`
 	Subcode      string `json:"subcode"`
 	Context      string `json:"context"`
-	Recontext    string `json:"recontext"`
 	Createtime   string `json:"createtime"`
 }
 
