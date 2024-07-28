@@ -13,7 +13,7 @@ type RecontextController struct{}
 func (rc RecontextController) GetList(c *gin.Context) {
 	param := c.Param("needhelpid")
 	needhelpid, _ := strconv.Atoi(param)
-	var recontexts []bean.Recontext
+	var recontexts []bean.RecontextView
 	db.DB.Where("needhelpid = ?", needhelpid).Find(&recontexts)
 	ReturnSuccess(c, OK, "success", recontexts, len(recontexts))
 }
