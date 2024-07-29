@@ -124,6 +124,11 @@ func Router() *gin.Engine {
 		auth.GET("/recontext/:needhelpid", controllers.RecontextController{}.GetList)
 		auth.POST("/recontext", controllers.RecontextController{}.Post)
 
+		auth.GET("/savefiles", controllers.SaveFileController{}.GetList)
+		savefile := auth.Group("/savefile")
+		{
+			savefile.GET("/:filename", controllers.SaveFileController{}.Get)
+		}
 	}
 
 	return r
