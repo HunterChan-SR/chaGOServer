@@ -84,12 +84,16 @@ func (s SubmitController) Post(c *gin.Context) {
 			ReturnSuccess(c, OK, "success", getRes+"+100", 1)
 			return
 		} else {
-			db.DB.Model(&bean.User{}).Where("id = ?", submit.Userid).Update("rating", gorm.Expr("rating - ?", 33))
+
 			if wrongCnt >= 3 {
-				//设置ranking为7
-				db.DB.Model(&bean.User{}).Where("id = ?", submit.Userid).Update("ranking", 7)
+				//设置ranking为7 rating - 500
+				db.DB.Model(&bean.User{}).Where("id = ?", submit.Userid).Update("ranking", 7).Update("rating", gorm.Expr("rating - ?", 500))
+				ReturnSuccess(c, OK, "success", getRes+"-500", 1)
+			} else {
+				db.DB.Model(&bean.User{}).Where("id = ?", submit.Userid).Update("rating", gorm.Expr("rating - ?", 33))
+				ReturnSuccess(c, OK, "success", getRes+"-33", 1)
 			}
-			ReturnSuccess(c, OK, "success", getRes+"-33", 1)
+
 			return
 		}
 	}
